@@ -20,6 +20,7 @@ public class MatchServiceImpl implements MatchService {
     @Override
     public Integer add(MatchAddRequest request) {
         Match match = MatchMapper.INSTANCE.matchFromMatchAddRequest(request);
+        match.setWinnerPlayer(match.getFirstPlayer());// TODO solve it
         matchRepository.save(match);
         return match.getId();
     }
@@ -38,6 +39,7 @@ public class MatchServiceImpl implements MatchService {
         match.setStartTime(request.getStartTime());
         match.setEndTime(request.getEndTime());
         match.setWinnerPlayer(user);
+        match.setGameStatus(request.getGameStatus());
 
         matchRepository.save(match);
     }

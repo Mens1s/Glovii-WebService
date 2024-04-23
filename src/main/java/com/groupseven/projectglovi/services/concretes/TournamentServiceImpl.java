@@ -32,7 +32,13 @@ public class TournamentServiceImpl implements TournamentService {
 
         for(int index = 0; index < request.getListOfPlayerIds().size()-1; index++){
             for(int innerIndex = index+1; innerIndex < request.getListOfPlayerIds().size(); innerIndex++){
-                result.add(tournamentMatchService.add(createRequest(index, innerIndex, request.getGameType(), request.getName(), tournament.getId(),order)));
+                result.add(tournamentMatchService.add(createRequest(
+                        request.getListOfPlayerIds().get(index),
+                        request.getListOfPlayerIds().get(innerIndex),
+                        request.getGameType(),
+                        request.getName(),
+                        tournament.getId(),
+                        order)));
                 order++;
             }
         }
@@ -50,6 +56,7 @@ public class TournamentServiceImpl implements TournamentService {
         TournamentMatchAddRequest tournamentMatchAddRequest = new TournamentMatchAddRequest();
         tournamentMatchAddRequest.setFirstPlayerId(firstPlayerId);
         tournamentMatchAddRequest.setSecondPlayerId(secondPlayerId);
+        tournamentMatchAddRequest.setWinnerPlayerId(secondPlayerId); // TODO solve it
         tournamentMatchAddRequest.setGameType(gameType);
         tournamentMatchAddRequest.setName(name);
         tournamentMatchAddRequest.setTournamentId(tournamentId);

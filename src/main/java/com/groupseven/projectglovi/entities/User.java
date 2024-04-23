@@ -89,18 +89,29 @@ public class User extends BaseEntity implements UserDetails {
     )
     private Set<Ball> balls;
 
-    @OneToMany(mappedBy = "firstPlayer", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
+    @OneToMany(mappedBy = "firstPlayer", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JsonIgnore
     private Set<Match> matchesAsFirstPlayer;
 
-    @OneToMany(mappedBy = "secondPlayer", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
+    @OneToMany(mappedBy = "secondPlayer", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JsonIgnore
     private Set<Match> matchesAsSecondPlayer;
 
-    @OneToMany(mappedBy = "winnerPlayer", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
+    @OneToMany(mappedBy = "winnerPlayer", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JsonIgnore
     private Set<Match> matchesAsWinnerPlayer;
 
+    @OneToMany(mappedBy = "firstPlayer", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JsonIgnore
+    private Set<TournamentMatch> tournamentMatchesAsFirstPlayer;
+
+    @OneToMany(mappedBy = "secondPlayer", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JsonIgnore
+    private Set<TournamentMatch> tournamentMatchesAsSecondPlayer;
+
+    @OneToMany(mappedBy = "winnerPlayer", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JsonIgnore
+    private Set<TournamentMatch> tournamentMatchesAsWinnerPlayer;
     @Override
     public boolean isAccountNonExpired() {
         return true;
