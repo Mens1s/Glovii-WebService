@@ -39,5 +39,5 @@ public class Tournament extends BaseEntity {
 
     @OneToMany(mappedBy="tournament")
     @JsonIgnore
-    private Set<TournamentMatches> matches;
+    private Set<TournamentMatch> matches;
 }

@@ -12,7 +12,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class TournamentMatches extends Match{
+public class TournamentMatch extends Match{
     @Column(name="name")
     private String name;
 
