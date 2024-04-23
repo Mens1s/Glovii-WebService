@@ -1,5 +1,6 @@
 package com.groupseven.projectglovi.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.groupseven.projectglovi.core.entities.BaseEntity;
 import com.groupseven.projectglovi.enums.EnumGameType;
 import com.groupseven.projectglovi.enums.EnumGameStatus;
@@ -37,5 +38,6 @@ public class Tournament extends BaseEntity {
     private EnumGameStatus gameStatus;
 
     @OneToMany(mappedBy="tournament")
+    @JsonIgnore
     private Set<TournamentMatches> matches;
 }

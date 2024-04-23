@@ -1,5 +1,6 @@
 package com.groupseven.projectglovi.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.groupseven.projectglovi.core.entities.BaseEntity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -15,6 +16,7 @@ import lombok.Setter;
 @NoArgsConstructor
 public class Rank extends BaseEntity {
     @OneToOne(mappedBy = "rank")
+    @JsonIgnore
     private User user;
 
     @Column(name="rank")

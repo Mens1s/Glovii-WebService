@@ -1,5 +1,6 @@
 package com.groupseven.projectglovi.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.groupseven.projectglovi.core.entities.BaseEntity;
 import com.groupseven.projectglovi.enums.EnumGender;
 import com.groupseven.projectglovi.enums.EnumRole;
@@ -89,12 +90,15 @@ public class User extends BaseEntity implements UserDetails {
     private Set<Ball> balls;
 
     @OneToMany(mappedBy = "firstPlayer", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
+    @JsonIgnore
     private Set<Match> matchesAsFirstPlayer;
 
     @OneToMany(mappedBy = "secondPlayer", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
+    @JsonIgnore
     private Set<Match> matchesAsSecondPlayer;
 
     @OneToMany(mappedBy = "winnerPlayer", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
+    @JsonIgnore
     private Set<Match> matchesAsWinnerPlayer;
 
     @Override

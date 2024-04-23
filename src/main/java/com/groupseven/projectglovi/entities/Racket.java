@@ -1,5 +1,6 @@
 package com.groupseven.projectglovi.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.groupseven.projectglovi.core.entities.BaseEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -20,6 +21,7 @@ import java.util.Set;
 @NoArgsConstructor
 public class Racket extends BaseEntity {
     @ManyToMany(mappedBy = "rackets")
+    @JsonIgnore
     private Set<User> user;
 
     @Column(name = "model", nullable = false)

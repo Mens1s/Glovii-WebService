@@ -1,5 +1,6 @@
 package com.groupseven.projectglovi.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.groupseven.projectglovi.core.entities.BaseEntity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -21,6 +22,7 @@ public class Role extends BaseEntity implements GrantedAuthority {
     private String name;
 
     @ManyToMany(mappedBy = "authorities")
+    @JsonIgnore
     private Set<User> users;
     @Override
     public String getAuthority() {

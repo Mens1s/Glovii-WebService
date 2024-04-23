@@ -1,5 +1,6 @@
 package com.groupseven.projectglovi.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.groupseven.projectglovi.core.entities.BaseEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -23,5 +24,6 @@ public class Country extends BaseEntity {
     private String name;
 
     @OneToMany(mappedBy = "country")
+    @JsonIgnore
     private Set<User> users;
 }
