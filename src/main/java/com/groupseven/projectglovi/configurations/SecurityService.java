@@ -20,7 +20,7 @@ public class SecurityService {
 
     private final JwtAuthFilter jwtAuthFilter;
 
-    public HttpSecurity configureCoreSecurity(HttpSecurity httpSecurity) throws Exception
+    public HttpSecurity configureSecurity(HttpSecurity httpSecurity) throws Exception
     {
         httpSecurity
                 .csrf(AbstractHttpConfigurer::disable)
