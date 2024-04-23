@@ -22,6 +22,6 @@ public class Ball extends BaseEntity {
     @ManyToMany(mappedBy = "balls")
     private Set<User> user;
 
-    @Column(name = "model")
+    @Column(name = "model", nullable = false)
     private String model;
 }

@@ -22,6 +22,6 @@ public class Racket extends BaseEntity {
     @ManyToMany(mappedBy = "rackets")
     private Set<User> user;
 
-    @Column(name = "model")
+    @Column(name = "model", nullable = false)
     private String model;
 }

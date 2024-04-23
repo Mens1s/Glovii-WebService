@@ -23,6 +23,6 @@ public class Car extends BaseEntity {
     @ManyToMany(mappedBy = "cars")
     private Set<User> user;
 
-    @Column(name = "model")
+    @Column(name = "model", nullable = false)
     private String model;
 }

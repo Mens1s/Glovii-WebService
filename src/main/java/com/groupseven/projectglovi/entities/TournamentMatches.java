@@ -20,6 +20,6 @@ public class TournamentMatches extends Match{
     @JoinColumn(name="tournament_id")
     private Tournament tournament;
 
-    @Column(name = "match_order")
+    @Column(name = "match_order", nullable = false)
     private Integer matchOrder;
 }

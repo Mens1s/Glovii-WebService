@@ -22,23 +22,23 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 public class User extends BaseEntity implements UserDetails {
-    @Column(name="username")
+    @Column(name="username", nullable = false)
     private String username;
 
-    @Column(name="first_name")
+    @Column(name="first_name", nullable = false)
     private String firstName;
 
-    @Column(name="last_name")
+    @Column(name="last_name", nullable = false)
     private String lastName;
 
-    @Column(name="email")
+    @Column(name="email", nullable = false)
     private String email;
 
-    @Column(name="password")
+    @Column(name="password", nullable = false)
     private String password;
 
     @Column(name="avatar")
-    private String avatar;
+    private String avatar = "default.jpg";
 
     @ManyToOne
     @JoinColumn(name="country_id")

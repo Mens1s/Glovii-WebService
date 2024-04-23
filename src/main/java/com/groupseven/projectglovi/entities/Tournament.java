@@ -19,16 +19,16 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Tournament extends BaseEntity {
-    @Column(name="name")
+    @Column(name="name", nullable = false)
     private String name;
 
-    @Column(name="start_date")
+    @Column(name="start_date", nullable = false)
     private LocalDateTime startDate;
 
-    @Column(name="end_date")
+    @Column(name="end_date", nullable = false)
     private LocalDateTime endDate;
 
-    @Column(name="game_type")
+    @Column(name="game_type", nullable = false)
     @Enumerated(EnumType.STRING)
     private EnumGameType gameType;
 

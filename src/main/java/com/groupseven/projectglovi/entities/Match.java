@@ -30,18 +30,18 @@ public class Match extends BaseEntity {
     @JoinColumn(name="match_winner_id")
     private User winnerPlayer;
 
-    @Column(name="game_type")
+    @Column(name="game_type", nullable = false)
     @Enumerated(EnumType.STRING)
     private EnumGameType gameType;
 
-    @Column(name="game_status")
+    @Column(name="game_status", nullable = false)
     @Enumerated(EnumType.STRING)
     private EnumGameStatus gameStatus;
 
-    @Column(name="start_time")
+    @Column(name="start_time", nullable = false)
     private LocalDateTime startTime;
 
-    @Column(name="end_time")
+    @Column(name="end_time", nullable = false)
     private LocalDateTime endTime;
 
 
