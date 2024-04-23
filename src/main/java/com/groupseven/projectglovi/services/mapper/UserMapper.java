@@ -1,11 +1,9 @@
 package com.groupseven.projectglovi.services.mapper;
 
-import com.groupseven.projectglovi.entities.Ball;
-import com.groupseven.projectglovi.entities.Car;
-import com.groupseven.projectglovi.entities.Racket;
-import com.groupseven.projectglovi.entities.User;
+import com.groupseven.projectglovi.entities.*;
 import com.groupseven.projectglovi.services.dtos.requests.UserRegisterRequest;
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
 
 import java.util.Set;
@@ -15,6 +13,7 @@ import java.util.stream.Collectors;
 public interface UserMapper {
     UserMapper INSTANCE = Mappers.getMapper(UserMapper.class);
 
+    @Mapping(target = "country", expression = "java(mapCountryIdToCountry(request.getCountryId()))")
     User userFromRegisterRequest(UserRegisterRequest request);
 
     default Set<Car> mapCarIdsToCars(Set<Integer> carIds) {
@@ -45,5 +44,11 @@ public interface UserMapper {
                     return ball;
                 })
                 .collect(Collectors.toSet());
+    }
+
+    default Country mapCountryIdToCountry(Integer countryId){
+        Country country = new Country();
+        country.setId(countryId);
+        return country;
     }
 }
