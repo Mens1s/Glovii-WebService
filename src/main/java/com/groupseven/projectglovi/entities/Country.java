@@ -19,8 +19,8 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Country extends BaseEntity {
-    @Column(name="country", nullable = false)
-    private String country;
+    @Column(name="name", nullable = false)
+    private String name;
 
     @OneToMany(mappedBy = "country")
     private Set<User> users;

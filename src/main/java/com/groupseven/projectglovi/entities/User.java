@@ -60,7 +60,7 @@ public class User extends BaseEntity implements UserDetails {
     @JoinColumn(name="rank_id", referencedColumnName = "id")
     private Rank rank;
 
-    @ManyToMany(fetch = FetchType.LAZY)
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinTable(
             name = "user_car",
             joinColumns = @JoinColumn(name="user_id"),
@@ -68,7 +68,7 @@ public class User extends BaseEntity implements UserDetails {
     )
     private Set<Car> cars;
 
-    @ManyToMany(fetch = FetchType.LAZY)
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinTable(
             name = "user_racket",
             joinColumns = @JoinColumn(name="user_id"),
@@ -76,7 +76,7 @@ public class User extends BaseEntity implements UserDetails {
     )
     private Set<Racket> rackets;
 
-    @ManyToMany(fetch = FetchType.LAZY)
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinTable(
             name = "user_ball",
             joinColumns = @JoinColumn(name="user_id"),
@@ -84,13 +84,13 @@ public class User extends BaseEntity implements UserDetails {
     )
     private Set<Ball> balls;
 
-    @OneToMany(mappedBy = "firstPlayer", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "firstPlayer", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
     private Set<Match> matchesAsFirstPlayer;
 
-    @OneToMany(mappedBy = "secondPlayer", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "secondPlayer", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
     private Set<Match> matchesAsSecondPlayer;
 
-    @OneToMany(mappedBy = "winnerPlayer", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "winnerPlayer", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
     private Set<Match> matchesAsWinnerPlayer;
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
