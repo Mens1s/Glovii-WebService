@@ -2,6 +2,7 @@ package com.groupseven.projectglovi.services.mapper;
 
 import com.groupseven.projectglovi.entities.*;
 import com.groupseven.projectglovi.services.dtos.requests.UserRegisterRequest;
+import com.groupseven.projectglovi.services.dtos.responses.UserGetResponse;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
@@ -15,6 +16,8 @@ public interface UserMapper {
 
     @Mapping(target = "country", expression = "java(mapCountryIdToCountry(request.getCountryId()))")
     User userFromRegisterRequest(UserRegisterRequest request);
+
+    UserGetResponse userGetResponseFromUser(User user);
 
     default Set<Car> mapCarIdsToCars(Set<Integer> carIds) {
         return carIds.stream()

@@ -52,9 +52,13 @@ public class User extends BaseEntity implements UserDetails {
     @Enumerated(EnumType.STRING)
     private EnumUserStatus status;
 
-    @Column(name="role")
-    @Enumerated(EnumType.STRING)
-    private EnumRole role;
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(
+            name="user_roles",
+            joinColumns = @JoinColumn(name="user_id"),
+            inverseJoinColumns = @JoinColumn(name="role_id")
+    )
+    private Set<Role> authorities;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="rank_id", referencedColumnName = "id")
@@ -92,10 +96,6 @@ public class User extends BaseEntity implements UserDetails {
 
     @OneToMany(mappedBy = "winnerPlayer", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
     private Set<Match> matchesAsWinnerPlayer;
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
-    }
 
     @Override
     public boolean isAccountNonExpired() {
