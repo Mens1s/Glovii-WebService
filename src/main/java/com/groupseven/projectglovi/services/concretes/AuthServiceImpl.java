@@ -34,6 +34,8 @@ public class AuthServiceImpl implements AuthService {
 
     @Override
     public String login(UserLoginRequest request) {
+        System.out.printf(request.getEmail());
+        System.out.printf(request.getPassword());
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(request.getEmail(), request.getPassword())
         );
