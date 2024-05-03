@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2024-05-03T03:00:51+0300",
+    date = "2024-05-03T03:30:10+0300",
     comments = "version: 1.5.5.Final, compiler: javac, environment: Java 20 (Oracle Corporation)"
 )
 @Component
@@ -34,7 +34,6 @@ public class UserMapperImpl implements UserMapper {
         user.setPassword( request.getPassword() );
         user.setGender( request.getGender() );
         user.setStatus( request.getStatus() );
-        user.setRank( request.getRank() );
         user.setCars( mapCarIdsToCars( request.getCars() ) );
         user.setRackets( mapRacketIdsToRackets( request.getRackets() ) );
         user.setBalls( mapBallIdsToBalls( request.getBalls() ) );
@@ -62,7 +61,6 @@ public class UserMapperImpl implements UserMapper {
         userGetResponse.setCountry( user.getCountry() );
         userGetResponse.setGender( user.getGender() );
         userGetResponse.setStatus( user.getStatus() );
-        userGetResponse.setRank( user.getRank() );
         Set<Car> set = user.getCars();
         if ( set != null ) {
             userGetResponse.setCars( new LinkedHashSet<Car>( set ) );

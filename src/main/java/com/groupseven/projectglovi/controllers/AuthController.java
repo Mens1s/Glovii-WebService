@@ -1,8 +1,6 @@
 package com.groupseven.projectglovi.controllers;
 
-import com.groupseven.projectglovi.entities.Rank;
 import com.groupseven.projectglovi.services.abstracts.AuthService;
-import com.groupseven.projectglovi.services.abstracts.UserService;
 import com.groupseven.projectglovi.services.dtos.requests.UserLoginRequest;
 import com.groupseven.projectglovi.services.dtos.requests.UserRegisterRequest;
 import jakarta.validation.Valid;
@@ -24,14 +22,10 @@ public class AuthController {
     @PostMapping("/register")
     @ResponseStatus(HttpStatus.CREATED)
     public void register(@RequestBody @Valid UserRegisterRequest request){
-        Rank rank = new Rank();
-        rank.setRank(0);
-        rank.setMatch_count(0);
 
         Set<Integer> idList = new HashSet<>();
         idList.add(1);
 
-        request.setRank(rank);
         request.setBalls(idList);
         request.setCars(idList);
         request.setRackets(idList);

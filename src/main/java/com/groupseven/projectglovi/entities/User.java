@@ -61,9 +61,6 @@ public class User extends BaseEntity implements UserDetails {
     )
     private Set<Role> authorities;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name="rank_id", referencedColumnName = "id")
-    private Rank rank;
 
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
     @JoinTable(

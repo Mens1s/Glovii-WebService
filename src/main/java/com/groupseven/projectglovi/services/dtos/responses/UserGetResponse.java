@@ -28,7 +28,6 @@ public class UserGetResponse {
     private EnumGender gender;
     private EnumUserStatus status;
     private EnumRole role;
-    private Rank rank;
     private Set<Car> cars;
     private Set<Racket> rackets;
     private Set<Ball> balls;

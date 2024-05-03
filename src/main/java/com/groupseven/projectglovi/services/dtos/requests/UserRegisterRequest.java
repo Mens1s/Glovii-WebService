@@ -1,6 +1,5 @@
 package com.groupseven.projectglovi.services.dtos.requests;
 
-import com.groupseven.projectglovi.entities.Rank;
 import com.groupseven.projectglovi.enums.EnumGender;
 import com.groupseven.projectglovi.enums.EnumRole;
 import com.groupseven.projectglovi.enums.EnumUserStatus;
@@ -45,9 +44,6 @@ public class UserRegisterRequest {
 
     @NotNull(message = Messages.ValidationErrors.NOT_NULL)
     private EnumRole role;
-
-    @NotNull(message = Messages.ValidationErrors.NOT_NULL)
-    private Rank rank;
 
     @NotBlank(message = Messages.ValidationErrors.NOT_BLANK)
     private Set<Integer> cars;
